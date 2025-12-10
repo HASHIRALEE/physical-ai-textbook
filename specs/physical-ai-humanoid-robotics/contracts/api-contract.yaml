@@ -1,0 +1,421 @@
+# API Contracts: Physical AI and Humanoid Robotics Textbook
+
+## 1. Chapter Management API
+
+### Get Chapter Content
+```
+GET /api/chapters/{chapterId}
+```
+
+**Description**: Retrieve a specific chapter's content and metadata
+
+**Path Parameters**:
+- `chapterId` (string, required): Unique identifier of the chapter
+
+**Query Parameters**:
+- `format` (string, optional): Response format (default: "full", options: "full", "metadata", "content")
+
+**Response (200 OK)**:
+```json
+{
+  "id": "ch01-introduction-to-physical-ai",
+  "title": "Introduction to Physical AI",
+  "subtitle": "Understanding Embodied Intelligence",
+  "wordCount": 2000,
+  "learningObjectives": [
+    "Understand the fundamental concepts of Physical AI",
+    "Distinguish between traditional AI and Physical AI",
+    "Recognize the importance of embodiment in intelligent systems"
+  ],
+  "coreConcepts": "# Core Concepts content in markdown",
+  "handsOnTutorial": "# Tutorial content in markdown",
+  "codeImplementation": "# Code examples in markdown with code blocks",
+  "exercises": [
+    {
+      "id": "ex01-01",
+      "title": "Physical vs Traditional AI",
+      "description": "Compare and contrast physical AI with traditional AI approaches",
+      "difficultyLevel": "Intermediate",
+      "type": "Analysis",
+      "requiredTime": 45
+    }
+  ],
+  "furtherReading": [
+    "Brooks, R. (1991). Intelligence without representation",
+    "Pfeifer, R. & Bongard, J. (2006). How the body shapes the way we think"
+  ],
+  "chapterSummary": "# Summary content in markdown",
+  "partNumber": 1,
+  "weekNumber": 1,
+  "prerequisites": ["basic-programming", "linear-algebra"],
+  "relatedChapters": ["ch02-embodied-cognition"],
+  "createdAt": "2025-12-10T10:00:00Z",
+  "updatedAt": "2025-12-10T15:30:00Z",
+  "author": "Textbook Team",
+  "reviewStatus": "Published"
+}
+```
+
+**Error Responses**:
+- 404: Chapter not found
+- 500: Internal server error
+
+### Search Chapters
+```
+GET /api/chapters
+```
+
+**Description**: Search and filter chapters
+
+**Query Parameters**:
+- `part` (integer, optional): Filter by part number (1-4)
+- `week` (integer, optional): Filter by week number (1-16)
+- `search` (string, optional): Search term for title or content
+- `limit` (integer, optional): Number of results to return (default: 10)
+- `offset` (integer, optional): Number of results to skip (default: 0)
+
+**Response (200 OK)**:
+```json
+{
+  "chapters": [
+    {
+      "id": "ch01-introduction-to-physical-ai",
+      "title": "Introduction to Physical AI",
+      "partNumber": 1,
+      "weekNumber": 1,
+      "wordCount": 2000,
+      "learningObjectives": ["Understand the fundamental concepts of Physical AI"],
+      "createdAt": "2025-12-10T10:00:00Z",
+      "updatedAt": "2025-12-10T15:30:00Z",
+      "reviewStatus": "Published"
+    }
+  ],
+  "total": 16,
+  "limit": 10,
+  "offset": 0
+}
+```
+
+## 2. Exercise Management API
+
+### Get Exercise
+```
+GET /api/exercises/{exerciseId}
+```
+
+**Description**: Retrieve a specific exercise
+
+**Path Parameters**:
+- `exerciseId` (string, required): Unique identifier of the exercise
+
+**Response (200 OK)**:
+```json
+{
+  "id": "ex01-01",
+  "title": "Physical vs Traditional AI",
+  "description": "Compare and contrast physical AI with traditional AI approaches",
+  "difficultyLevel": "Intermediate",
+  "type": "Analysis",
+  "requiredTime": 45,
+  "learningObjectives": ["Understand differences between AI approaches"],
+  "solution": "Detailed solution or guidance for the exercise",
+  "hints": [
+    "Consider the role of embodiment in physical AI",
+    "Think about how traditional AI operates in abstract spaces"
+  ],
+  "chapterID": "ch01-introduction-to-physical-ai",
+  "createdAt": "2025-12-10T10:00:00Z",
+  "updatedAt": "2025-12-10T10:00:00Z"
+}
+```
+
+### Submit Exercise Answer
+```
+POST /api/exercises/{exerciseId}/submit
+```
+
+**Description**: Submit an answer for an exercise
+
+**Path Parameters**:
+- `exerciseId` (string, required): Unique identifier of the exercise
+
+**Request Body**:
+```json
+{
+  "userId": "user-123",
+  "answer": "Student's answer to the exercise",
+  "timeSpent": 35
+}
+```
+
+**Response (200 OK)**:
+```json
+{
+  "exerciseId": "ex01-01",
+  "userId": "user-123",
+  "submissionId": "sub-456",
+  "graded": false,
+  "feedback": "Answer received, pending review",
+  "submittedAt": "2025-12-10T14:30:00Z"
+}
+```
+
+## 3. User Progress API
+
+### Get User Progress
+```
+GET /api/users/{userId}/progress
+```
+
+**Description**: Retrieve user's progress across chapters
+
+**Path Parameters**:
+- `userId` (string, required): Unique identifier of the user
+
+**Query Parameters**:
+- `chapterId` (string, optional): Filter by specific chapter
+
+**Response (200 OK)**:
+```json
+{
+  "userId": "user-123",
+  "progress": [
+    {
+      "chapterId": "ch01-introduction-to-physical-ai",
+      "status": "Completed",
+      "completionPercentage": 100,
+      "timeSpent": 120,
+      "lastAccessed": "2025-12-10T14:30:00Z",
+      "exerciseProgress": [
+        {
+          "exerciseId": "ex01-01",
+          "status": "Completed",
+          "completedAt": "2025-12-10T14:25:00Z"
+        }
+      ],
+      "createdAt": "2025-12-10T10:00:00Z",
+      "updatedAt": "2025-12-10T14:30:00Z"
+    }
+  ]
+}
+```
+
+### Update Chapter Progress
+```
+PUT /api/users/{userId}/progress/{chapterId}
+```
+
+**Description**: Update user's progress for a specific chapter
+
+**Path Parameters**:
+- `userId` (string, required): Unique identifier of the user
+- `chapterId` (string, required): Unique identifier of the chapter
+
+**Request Body**:
+```json
+{
+  "status": "In Progress",
+  "completionPercentage": 75,
+  "timeSpent": 90
+}
+```
+
+**Response (200 OK)**:
+```json
+{
+  "userId": "user-123",
+  "chapterId": "ch01-introduction-to-physical-ai",
+  "status": "In Progress",
+  "completionPercentage": 75,
+  "timeSpent": 90,
+  "lastAccessed": "2025-12-10T14:30:00Z",
+  "updatedAt": "2025-12-10T14:30:00Z"
+}
+```
+
+## 4. Code Examples API
+
+### Get Code Example
+```
+GET /api/code-examples/{exampleId}
+```
+
+**Description**: Retrieve a specific code example
+
+**Path Parameters**:
+- `exampleId` (string, required): Unique identifier of the code example
+
+**Response (200 OK)**:
+```json
+{
+  "id": "py01-kinematics-forward",
+  "title": "Forward Kinematics Example",
+  "description": "Calculate end-effector position from joint angles",
+  "language": "Python",
+  "code": "import numpy as np\n\ndef forward_kinematics(joint_angles):\n    # Implementation here\n    pass",
+  "explanation": "This function calculates the position of the robot's end-effector based on joint angles",
+  "dependencies": ["numpy", "scipy"],
+  "simulationEnvironment": "Gazebo",
+  "chapterID": "ch03-locomotion-systems",
+  "createdAt": "2025-12-10T10:00:00Z",
+  "updatedAt": "2025-12-10T10:00:00Z"
+}
+```
+
+### Run Code Example (Simulation)
+```
+POST /api/code-examples/{exampleId}/run
+```
+
+**Description**: Execute a code example in simulation environment
+
+**Path Parameters**:
+- `exampleId` (string, required): Unique identifier of the code example
+
+**Request Body**:
+```json
+{
+  "userId": "user-123",
+  "parameters": {
+    "joint_angles": [0.5, 1.2, -0.3],
+    "simulation_time": 10.0
+  }
+}
+```
+
+**Response (200 OK)**:
+```json
+{
+  "executionId": "exec-789",
+  "exampleId": "py01-kinematics-forward",
+  "userId": "user-123",
+  "status": "completed",
+  "output": "End-effector position: [0.8, 0.6, 1.2]",
+  "executionTime": 2.5,
+  "executedAt": "2025-12-10T14:30:00Z"
+}
+```
+
+## 5. RAG Chatbot API
+
+### Ask Question
+```
+POST /api/chatbot/ask
+```
+
+**Description**: Ask a question to the RAG-enhanced chatbot
+
+**Request Body**:
+```json
+{
+  "userId": "user-123",
+  "question": "Explain the difference between forward and inverse kinematics",
+  "context": "ch03-locomotion-systems",  // Optional: chapter context
+  "includeSources": true
+}
+```
+
+**Response (200 OK)**:
+```json
+{
+  "questionId": "qst-101",
+  "question": "Explain the difference between forward and inverse kinematics",
+  "answer": "Forward kinematics calculates the end-effector position from joint angles, while inverse kinematics calculates the required joint angles to achieve a desired end-effector position...",
+  "sources": [
+    {
+      "chapterId": "ch03-locomotion-systems",
+      "chapterTitle": "Locomotion Systems",
+      "section": "Kinematics Fundamentals",
+      "relevance": 0.95
+    }
+  ],
+  "confidence": 0.89,
+  "answeredAt": "2025-12-10T14:30:00Z",
+  "responseTime": 1.8
+}
+```
+
+## 6. Search API
+
+### Search Content
+```
+GET /api/search
+```
+
+**Description**: Search across textbook content
+
+**Query Parameters**:
+- `q` (string, required): Search query
+- `type` (string, optional): Content type filter (options: "chapter", "exercise", "code", "all")
+- `limit` (integer, optional): Number of results to return (default: 10)
+
+**Response (200 OK)**:
+```json
+{
+  "query": "forward kinematics",
+  "results": [
+    {
+      "type": "chapter",
+      "id": "ch03-locomotion-systems",
+      "title": "Locomotion Systems",
+      "contentPreview": "This chapter covers forward and inverse kinematics...",
+      "relevance": 0.98,
+      "url": "/docs/chapters/ch03-locomotion-systems"
+    },
+    {
+      "type": "code",
+      "id": "py01-kinematics-forward",
+      "title": "Forward Kinematics Example",
+      "contentPreview": "def forward_kinematics(joint_angles):...",
+      "relevance": 0.92,
+      "url": "/docs/code-examples/py01-kinematics-forward"
+    }
+  ],
+  "totalResults": 2,
+  "queryTime": 0.15
+}
+```
+
+## 7. Authentication API (Optional)
+
+### Get Auth Status
+```
+GET /api/auth/status
+```
+
+**Description**: Check authentication status
+
+**Response (200 OK)**:
+```json
+{
+  "authenticated": true,
+  "userId": "user-123",
+  "permissions": ["read_content", "submit_exercises", "track_progress"],
+  "expiresAt": "2025-12-11T10:00:00Z"
+}
+```
+
+### Login
+```
+POST /api/auth/login
+```
+
+**Description**: Authenticate user
+
+**Request Body**:
+```json
+{
+  "provider": "github",  // or other supported providers
+  "token": "oauth-token"
+}
+```
+
+**Response (200 OK)**:
+```json
+{
+  "authenticated": true,
+  "userId": "user-123",
+  "token": "jwt-token",
+  "expiresAt": "2025-12-11T10:00:00Z"
+}
+```
