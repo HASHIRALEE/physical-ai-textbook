@@ -1,0 +1,112 @@
+.translation-wrapper {
+  position: relative;
+  min-height: 400px;
+}
+
+.translation-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  justify-content: flex-end;
+}
+
+.lang-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+  background-color: #e9ecef;
+}
+
+.lang-btn.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.content-area {
+  min-height: 300px;
+}
+
+.urdu-content {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Segoe UI', serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.8;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.urdu-content h1 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.urdu-content p {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+.translation-note {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e7f3ff;
+  border-left: 4px solid #2196F3;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* RTL-specific styling */
+html[dir="rtl"] body,
+.urdu-mode {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Ensure proper RTL layout for all elements */
+.urdu-content ul,
+.urdu-content ol {
+  text-align: right;
+  direction: rtl;
+  padding-right: 20px;
+}
+
+.urdu-content blockquote {
+  border-right: 4px solid #ddd;
+  border-left: none;
+  margin-right: 0;
+  margin-left: 20px;
+  padding-right: 15px;
+  padding-left: 0;
+}
+
+.urdu-content table {
+  text-align: right;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .translation-controls {
+    flex-direction: column;
+  }
+
+  .lang-btn {
+    width: 100%;
+  }
+
+  .urdu-content {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <!-- Dark background circle -->
+  <circle cx="8" cy="8" r="7.5" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+
+  <!-- Robot head outline -->
+  <circle cx="8" cy="8" r="5" fill="none" stroke="#3b82f6" stroke-width="1"/>
+
+  <!-- Robot eyes -->
+  <circle cx="6" cy="7" r="0.8" fill="#3b82f6"/>
+  <circle cx="10" cy="7" r="0.8" fill="#3b82f6"/>
+
+  <!-- Robot mouth/speaking indicator -->
+  <path d="M6 10 Q8 11 10 10" stroke="#3b82f6" stroke-width="0.8" fill="none"/>
+
+  <!-- AI brain circuit pattern -->
+  <path d="M4 5 Q5 4 6 5 T8 5 T10 5 T12 5" stroke="#3b82f6" stroke-width="0.5" fill="none"/>
+  <path d="M4 6 Q6 6 7 7 T9 7 T12 6" stroke="#3b82f6" stroke-width="0.5" fill="none"/>
+  <path d="M4 9 Q5 10 6 9 T8 9 T10 9 T12 9" stroke="#3b82f6" stroke-width="0.5" fill="none"/>
+  <path d="M5 4 Q7 4 8 5 T11 4" stroke="#3b82f6" stroke-width="0.5" fill="none"/>
+  <path d="M5 11 Q7 11 8 10 T11 11" stroke="#3b82f6" stroke-width="0.5" fill="none"/>
+</svg>

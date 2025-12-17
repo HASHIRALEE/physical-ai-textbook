@@ -21,7 +21,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Introduction',
-      items: ['intro'],
+      items: ['intro', 'intro-demo'],
     },
     {
       type: 'category',
@@ -30,6 +30,19 @@ const sidebars: SidebarsConfig = {
         'chapters/ch01-introduction-to-physical-ai',
         'chapters/ch02-locomotion-systems',
         'chapters/ch03-perception-systems',
+        'chapters/gazebo-simulation-basics',
+        'chapters/unity-for-human-robot-interaction',
+        'chapters/robot-manipulation-and-control',
+        'chapters/perception-and-computer-vision-for-robotics',
+        'chapters/path-planning-and-navigation',
+        'chapters/mobile-robot-platforms-and-hardware-integration',
+        'chapters/robot-operating-system-ros-architecture',
+        'chapters/control-systems-for-robotics',
+        'chapters/human-robot-interaction-principles',
+        'chapters/robot-learning-and-adaptation',
+        'chapters/multi-robot-systems-and-coordination',
+        'chapters/safety-and-ethics-in-robotics',
+        'chapters/future-trends-in-physical-ai-and-robotics',
       ],
     },
     {

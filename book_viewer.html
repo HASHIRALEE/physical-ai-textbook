@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical AI and Robotics Textbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar {
+            flex: 0 0 250px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .chapter-list {
+            list-style: none;
+        }
+
+        .chapter-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-link {
+            display: block;
+            padding: 0.75rem;
+            text-decoration: none;
+            color: #333;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .chapter-link:hover {
+            background-color: #f0f0f0;
+            border-left-color: #667eea;
+        }
+
+        .chapter-link.active {
+            background-color: #667eea;
+            color: white;
+            border-left-color: #764ba2;
+        }
+
+        .content-area {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chapter-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .chapter-title {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-meta {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .chapter-content {
+            line-height: 1.8;
+        }
+
+        .chapter-content h1, .chapter-content h2, .chapter-content h3 {
+            color: #667eea;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .chapter-content h1 {
+            font-size: 1.8rem;
+        }
+
+        .chapter-content h2 {
+            font-size: 1.5rem;
+        }
+
+        .chapter-content h3 {
+            font-size: 1.3rem;
+        }
+
+        .chapter-content p {
+            margin-bottom: 1rem;
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .chapter-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .chapter-content pre {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #5a6fd8;
+        }
+
+        .nav-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Physical AI and Robotics Textbook</h1>
+            <p class="subtitle">A Comprehensive Guide to Modern Robotics</p>
+        </header>
+
+        <div class="main-content">
+            <nav class="sidebar">
+                <h2>Table of Contents</h2>
+                <ul class="chapter-list" id="chapterList">
+                    <!-- Chapters will be populated by JavaScript -->
+                </ul>
+            </nav>
+
+            <main class="content-area">
+                <div id="loading" class="loading">Loading chapters...</div>
+                <div id="chapterContent" class="hidden">
+                    <div class="chapter-header">
+                        <h1 class="chapter-title" id="chapterTitle">Chapter Title</h1>
+                        <div class="chapter-meta" id="chapterMeta">Chapter Details</div>
+                    </div>
+                    <div class="chapter-content" id="chapterBody"></div>
+                    <div class="navigation">
+                        <a href="#" class="nav-btn" id="prevBtn" onclick="showChapter(currentChapterIndex - 1)">Previous Chapter</a>
+                        <a href="#" class="nav-btn" id="nextBtn" onclick="showChapter(currentChapterIndex + 1)">Next Chapter</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Chapter data - will be populated with actual content
+        const chapters = [
+            { number: 1, filename: "01-introduction-to-physical-ai.md", title: "Introduction to Physical AI" },
+            { number: 2, filename: "02-locomotion-systems.md", title: "Locomotion Systems" },
+            { number: 3, filename: "03-perception-systems.md", title: "Perception Systems" },
+            { number: 4, filename: "04-gazebo-simulation-basics.md", title: "Gazebo Simulation Basics" },
+            { number: 5, filename: "05-unity-for-human-robot-interaction.md", title: "Unity for Human Robot Interaction" },
+            { number: 6, filename: "06-robot-manipulation-and-control.md", title: "Robot Manipulation and Control" },
+            { number: 7, filename: "07-perception-and-computer-vision-for-robotics.md", title: "Perception and Computer Vision for Robotics" },
+            { number: 8, filename: "08-path-planning-and-navigation.md", title: "Path Planning and Navigation" },
+            { number: 9, filename: "09-mobile-robot-platforms-and-hardware-integration.md", title: "Mobile Robot Platforms and Hardware Integration" },
+            { number: 10, filename: "10-robot-operating-system-ros-architecture.md", title: "Robot Operating System (ROS) Architecture" },
+            { number: 11, filename: "11-control-systems-for-robotics.md", title: "Control Systems for Robotics" },
+            { number: 12, filename: "12-human-robot-interaction-principles.md", title: "Human Robot Interaction Principles" },
+            { number: 13, filename: "13-robot-learning-and-adaptation.md", title: "Robot Learning and Adaptation" },
+            { number: 14, filename: "14-multi-robot-systems-and-coordination.md", title: "Multi Robot Systems and Coordination" },
+            { number: 15, filename: "15-safety-and-ethics-in-robotics.md", title: "Safety and Ethics in Robotics" },
+            { number: 16, filename: "16-future-trends-in-physical-ai-and-robotics.md", title: "Future Trends in Physical AI and Robotics" }
+        ];
+
+        let currentChapterIndex = 0;
+
+        // Create the chapter list in the sidebar
+        function populateChapterList() {
+            const chapterList = document.getElementById('chapterList');
+            chapterList.innerHTML = '';
+
+            chapters.forEach((chapter, index) => {
+                const li = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = '#';
+                link.className = 'chapter-link';
+                link.textContent = `${chapter.number}. ${chapter.title}`;
+                link.onclick = (e) => {
+                    e.preventDefault();
+                    showChapter(index);
+                };
+                li.appendChild(link);
+                chapterList.appendChild(li);
+            });
+        }
+
+        // Show a specific chapter
+        function showChapter(index) {
+            if (index < 0 || index >= chapters.length) return;
+
+            currentChapterIndex = index;
+            const chapter = chapters[index];
+
+            // Update active class in sidebar
+            document.querySelectorAll('.chapter-link').forEach((link, i) => {
+                if (i === index) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Show loading state
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('chapterContent').classList.add('hidden');
+
+            // Fetch and display chapter content
+            fetch(`docs/docs/chapters/${chapter.filename}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(content => {
+                    // Process the markdown content for display
+                    const processedContent = processMarkdown(content);
+
+                    document.getElementById('chapterTitle').textContent = `${chapter.number}. ${chapter.title}`;
+                    document.getElementById('chapterMeta').textContent = `Chapter ${chapter.number} • ${chapter.filename}`;
+                    document.getElementById('chapterBody').innerHTML = processedContent;
+
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('chapterContent').classList.remove('hidden');
+
+                    // Update navigation buttons
+                    document.getElementById('prevBtn').style.display = index > 0 ? 'inline-block' : 'none';
+                    document.getElementById('nextBtn').style.display = index < chapters.length - 1 ? 'inline-block' : 'none';
+                })
+                .catch(error => {
+                    console.error('Error loading chapter:', error);
+                    document.getElementById('chapterBody').innerHTML = `<p style="color: red;">Error loading chapter: ${error.message}</p>`;
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('chapterContent').classList.remove('hidden');
+                });
+        }
+
+        // Simple markdown processor for basic formatting
+        function processMarkdown(markdown) {
+            let html = markdown;
+
+            // Convert headers
+            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+            html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+            html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+
+            // Convert bold and italic
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+            // Convert links
+            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+
+            // Convert code blocks
+            html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+            // Convert lists
+            html = html.replace(/^- (.*$)/gim, '<li>$1</li>');
+            html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+
+            // Convert paragraphs
+            html = html.replace(/^\s*([^<].*?)$/gim, '<p>$1</p>');
+
+            // Clean up multiple empty lines
+            html = html.replace(/<p>\s*<\/p>/g, '');
+            html = html.replace(/\n+/g, '');
+
+            return html;
+        }
+
+        // Initialize the book viewer
+        document.addEventListener('DOMContentLoaded', function() {
+            populateChapterList();
+            showChapter(0); // Show first chapter by default
+        });
+    </script>
+</body>
+</html>

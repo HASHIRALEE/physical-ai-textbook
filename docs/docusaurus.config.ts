@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Physical AI and Humanoid Robotics',
   tagline: 'A University-Level Textbook on Advanced Robotics',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -32,7 +32,17 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'ur'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+      },
+      ur: {
+        label: 'اردو',
+        direction: 'rtl',
+      },
+    },
   },
 
   presets: [
@@ -78,7 +88,10 @@ const config: Config = {
       title: 'Physical AI & Humanoid Robotics',
       logo: {
         alt: 'Physical AI and Humanoid Robotics Textbook Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo-robot-navbar.svg',
+        srcDark: 'img/logo-robot-dark.svg',
+        width: 40,
+        height: 40,
       },
       items: [
         {
@@ -86,6 +99,10 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Textbook',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
         },
         {
           href: 'https://github.com/your-org/physical-ai-humanoid-robotics',
@@ -139,6 +156,13 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    stylesheets: [
+      {
+        href: 'https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap',
+        type: 'text/css',
+        rel: 'stylesheet',
+      },
+    ],
   } satisfies Preset.ThemeConfig,
 };
 

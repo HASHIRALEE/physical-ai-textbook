@@ -1,10 +1,10 @@
 ---
-description: "Task list for Physical AI and Humanoid Robotics textbook implementation"
+description: "Task list for Chapters 9-16 of Physical AI and Humanoid Robotics textbook"
 ---
 
-# Tasks: Physical AI and Humanoid Robotics Textbook
+# Tasks: Chapters 9-16 Physical AI and Humanoid Robotics Textbook
 
-**Input**: Design documents from `/specs/physical-ai-humanoid-robotics/`
+**Input**: User request to create complete content for Chapters 9-16 of Physical AI textbook
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
 **Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
@@ -20,16 +20,19 @@ description: "Task list for Physical AI and Humanoid Robotics textbook implement
 ## Path Conventions
 
 - **Docusaurus project**: `docs/`, `src/`, `static/` at repository root
-- **Code examples**: `docs/code-examples/` for embedded examples, separate `code-examples/` for runnable files
-- **Exercises**: `docs/exercises/` for exercise content
+- **Chapters**: `docs/docs/chapters/`
+- **Code examples**: `docs/src/code-examples/` for embedded examples, separate `code-examples/` for runnable files
+- **Exercises**: `docs/docs/exercises/` for exercise content
+- **Simulations**: `docs/docs/simulations/` for simulation files
 
 ## Phase 1: Setup (Shared Infrastructure)
 
 **Purpose**: Project initialization and basic Docusaurus structure
 
-- [ ] T001 Create Docusaurus project structure per implementation plan
-- [ ] T002 Initialize Docusaurus with required dependencies and configuration
-- [ ] T003 [P] Configure linting and formatting for markdown files
+- [ ] T132 Verify Docusaurus project structure exists in docs/ directory
+- [ ] T133 Create chapters directory if it doesn't exist: docs/docs/chapters/
+- [ ] T134 Create exercises directory if it doesn't exist: docs/docs/exercises/
+- [ ] T135 Create code-examples directory structure: docs/src/code-examples/
 
 ---
 
@@ -39,170 +42,237 @@ description: "Task list for Physical AI and Humanoid Robotics textbook implement
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Setup basic Docusaurus configuration in docusaurus.config.js
-- [ ] T005 [P] Create basic navigation structure in sidebars.js
-- [ ] T006 [P] Setup basic styling and theme configuration
-- [ ] T007 Create basic docs folder structure for chapters, tutorials, and exercises
-- [ ] T008 Configure GitHub Pages deployment settings
-- [ ] T009 Setup basic README and project documentation
+- [ ] T136 Create standardized chapter template with all 7 required sections
+- [ ] T137 [P] Setup basic navigation structure in sidebars.ts for 8 advanced chapters
+- [ ] T138 [P] Create basic styling for advanced chapter content in custom.css
+- [ ] T139 Create standardized exercise template for advanced chapters with practical projects
+- [ ] T140 Verify GitHub Pages deployment configuration
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
 ---
 
-## Phase 3: User Story 1 - Core Introduction Chapter (Priority: P1) 🎯 MVP
+## Phase 3: User Story 9 - Chapter 9: Humanoid Kinematics (Priority: P2)
 
-**Goal**: Create the introductory chapter that explains fundamentals of Physical AI and Humanoid Robotics
+**Goal**: Create chapter on humanoid kinematics covering forward/inverse kinematics, DH parameters, motion planning, and Python kinematics code
 
-**Independent Test**: Can be fully tested by reading the chapter and verifying that it provides clear learning objectives, theoretical foundations, practical examples, and exercises that reinforce basic concepts.
+**Independent Test**: Chapter can be viewed in Docusaurus site and contains all required elements with functional kinematics code examples
 
-### Implementation for User Story 1
+### Implementation for Chapter 9
 
-- [X] T010 [P] [US1] Create introduction chapter content in docs/chapters/01-introduction-to-physical-ai.md using template structure
-- [X] T011 [P] [US1] Write learning objectives (3-5 bullet points) for Chapter 1 with specific outcomes
-- [X] T012 [US1] Define core concepts: Embodied Intelligence, Physical AI vs Digital AI with clear explanations
-- [X] T013 [US1] Include historical context: From Asimov to Boston Dynamics with timeline and key developments
-- [X] T014 [US1] Add diagram: Components of Physical AI system using Mermaid syntax for system architecture
-- [X] T015 [US1] Write hands-on tutorial: Setting up Python environment with step-by-step instructions
-- [X] T016 [US1] Add code snippet: Basic ROS2 node in Python with proper syntax highlighting and explanation
-- [X] T017 [US1] Create exercise: Compare two humanoid robots with specific comparison criteria
-- [X] T018 [US1] Add summary and key takeaways section for Chapter 1
-- [X] T019 [US1] Include references and further reading section with academic sources
-- [X] T020 [US1] Add callout boxes for important notes using Docusaurus admonitions
-- [X] T021 [US1] Implement interactive quiz components using custom MDX components
-- [X] T022 [US1] Add markdown tables for comparisons between different robotics platforms
-- [X] T023 [US1] Verify chapter word count is between 1800-2200 words as per data model
-- [X] T024 [US1] Create corresponding exercise file in docs/exercises/chapter-01-exercises.md
-- [X] T025 [US1] Create code example file in docs/code-examples/python/chapter1-basic-node.py
-- [X] T026 [US1] Update sidebar navigation to include introduction chapter
-- [X] T027 [US1] Add proper frontmatter with id, title, sidebar_label, sidebar_position, and description
+- [ ] T141 [P] [US9] Create Humanoid Kinematics chapter in docs/docs/chapters/ch09-humanoid-kinematics.md
+- [ ] T142 [P] [US9] Create learning objectives section (3-5 points) for Chapter 9
+- [ ] T143 [P] [US9] Create section on Forward kinematics for Chapter 9
+- [ ] T144 [US9] Create section on Inverse kinematics for Chapter 9
+- [ ] T145 [US9] Create section on DH parameters for Chapter 9
+- [ ] T146 [US9] Create section on Motion planning for Chapter 9
+- [ ] T147 [US9] Create section with Python kinematics code for Chapter 9
+- [ ] T148 [US9] Create Python/ROS2 code examples for Chapter 9 in docs/src/code-examples/chapter9/
+- [ ] T149 [US9] Create practical exercises and projects for Chapter 9 in docs/docs/exercises/chapter-09-exercises.md
+- [ ] T150 [US9] Create chapter summary section for Chapter 9
+- [ ] T151 [US9] Create further reading section for Chapter 9
+- [ ] T152 [US9] Create assessment questions and criteria for Chapter 9
+- [ ] T153 [US9] Add proper frontmatter with id, title, sidebar_label, sidebar_position, and description for Chapter 9
+- [ ] T154 [US9] Verify chapter word count is between 1500-2000 words as per requirements
+- [ ] T155 [US9] Update sidebar navigation to include Chapter 9
 
-**Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
+**Checkpoint**: At this point, User Story 9 should be fully functional and testable independently
 
 ---
 
-## Phase 4: User Story 4 - Docusaurus-based Textbook Deployment (Priority: P1)
+## Phase 4: User Story 10 - Chapter 10: Bipedal Locomotion (Priority: P2)
 
-**Goal**: Enable access to the Physical AI and Humanoid Robotics textbook through a well-structured Docusaurus website deployed to GitHub Pages
+**Goal**: Create chapter on bipedal locomotion covering walking algorithms, balance control, ZMP theory, and gait generation
 
-**Independent Test**: Can be tested by building the Docusaurus site and verifying all navigation, search, and content display functions work correctly.
+**Independent Test**: Chapter can be viewed in Docusaurus site and contains all required elements with functional locomotion code examples
 
-### Implementation for User Story 4
+### Implementation for Chapter 10
 
-- [ ] T028 [P] [US4] Configure GitHub Pages deployment workflow in .github/workflows/deploy.yml
-- [ ] T029 [P] [US4] Update docusaurus.config.js with proper site metadata and deployment settings
-- [ ] T030 [US4] Test local build of Docusaurus site
-- [ ] T031 [US4] Test navigation between existing chapters
-- [ ] T032 [US4] Verify search functionality works
-- [ ] T033 [US4] Add site-wide navigation and footer elements
+- [ ] T156 [P] [US10] Create Bipedal Locomotion chapter in docs/docs/chapters/ch10-bipedal-locomotion.md
+- [ ] T157 [P] [US10] Create learning objectives section (3-5 points) for Chapter 10
+- [ ] T158 [P] [US10] Create section on Walking algorithms for Chapter 10
+- [ ] T159 [US10] Create section on Balance control for Chapter 10
+- [ ] T160 [US10] Create section on ZMP theory for Chapter 10
+- [ ] T161 [US10] Create section on Gait generation for Chapter 10
+- [ ] T162 [US10] Create Python/ROS2 code examples for Chapter 10 in docs/src/code-examples/chapter10/
+- [ ] T163 [US10] Create practical exercises and projects for Chapter 10 in docs/docs/exercises/chapter-10-exercises.md
+- [ ] T164 [US10] Create chapter summary section for Chapter 10
+- [ ] T165 [US10] Create further reading section for Chapter 10
+- [ ] T166 [US10] Create assessment questions and criteria for Chapter 10
+- [ ] T167 [US10] Add proper frontmatter with id, title, sidebar_label, sidebar_position, and description for Chapter 10
+- [ ] T168 [US10] Verify chapter word count is between 1500-2000 words as per requirements
+- [ ] T169 [US10] Update sidebar navigation to include Chapter 10
 
-**Checkpoint**: At this point, User Stories 1 AND 4 should both work independently
-
----
-
-## Phase 5: User Story 2 - Locomotion and Control Systems Chapter (Priority: P2)
-
-**Goal**: Create a chapter on locomotion and control systems with Python/ROS2 code examples
-
-**Independent Test**: Can be tested by implementing the code examples in simulation and verifying they demonstrate proper locomotion principles.
-
-### Implementation for User Story 2
-
-- [ ] T034 [P] [US2] Create locomotion chapter content in docs/chapters/02-locomotion-systems.md
-- [ ] T035 [P] [US2] Add learning objectives and theoretical foundations to locomotion chapter
-- [ ] T036 [US2] Add practical examples section to locomotion chapter
-- [ ] T037 [US2] Create Python code examples for locomotion in docs/code-examples/python/locomotion/
-- [ ] T038 [US2] Create ROS2 code examples for locomotion in docs/code-examples/ros2/
-- [ ] T039 [US2] Add exercises for locomotion chapter in docs/exercises/chapter-02-exercises.md
-- [ ] T040 [US2] Add summary section to locomotion chapter
-- [ ] T041 [US2] Update sidebar navigation to include locomotion chapter
-
-**Checkpoint**: All user stories should now be independently functional
+**Checkpoint**: At this point, User Stories 9 AND 10 should both work independently
 
 ---
 
-## Phase 6: User Story 3 - Perception Systems Chapter (Priority: P3)
+## Phase 5: User Story 11 - Chapter 11: Conversational AI (Priority: P2)
 
-**Goal**: Create a chapter on perception systems including vision, tactile sensing, and multimodal perception
+**Goal**: Create chapter on conversational AI covering speech recognition, NLP, GPT-ROS2 integration, and voice commands
 
-**Independent Test**: Can be tested by implementing perception algorithms and verifying they correctly process sensor data.
+**Independent Test**: Chapter can be viewed in Docusaurus site and contains all required elements with functional conversational AI code examples
 
-### Implementation for User Story 3
+### Implementation for Chapter 11
 
-- [ ] T042 [P] [US3] Create perception chapter content in docs/chapters/03-perception-systems.md
-- [ ] T043 [P] [US3] Add learning objectives and theoretical foundations to perception chapter
-- [ ] T044 [US3] Add practical examples section to perception chapter
-- [ ] T045 [US3] Create Python code examples for perception in docs/code-examples/python/perception/
-- [ ] T046 [US3] Create ROS2 code examples for perception in docs/code-examples/ros2/
-- [ ] T047 [US3] Add exercises for perception chapter in docs/exercises/chapter-03-exercises.md
-- [ ] T048 [US3] Add summary section to perception chapter
-- [ ] T049 [US3] Update sidebar navigation to include perception chapter
-
----
-
-## Phase 7: User Story 5 - Interactive Exercises and Code Examples (Priority: P2)
-
-**Goal**: Provide interactive exercises and runnable code examples for each chapter
-
-**Independent Test**: Can be tested by running the exercises and verifying they provide meaningful learning experiences.
-
-### Implementation for User Story 5
-
-- [ ] T050 [P] [US5] Create standardized exercise format templates
-- [ ] T051 [P] [US5] Add interactive elements to existing chapter exercises
-- [ ] T052 [US5] Organize code examples by topic and language
-- [ ] T053 [US5] Add documentation for running code examples
-- [ ] T054 [US5] Create simulation environment setup instructions
-- [ ] T055 [US5] Add solution guides for exercises
+- [ ] T170 [P] [US11] Create Conversational AI chapter in docs/docs/chapters/ch11-conversational-ai.md
+- [ ] T171 [P] [US11] Create learning objectives section (3-5 points) for Chapter 11
+- [ ] T172 [P] [US11] Create section on Speech recognition for Chapter 11
+- [ ] T173 [US11] Create section on Natural language processing for Chapter 11
+- [ ] T174 [US11] Create section on GPT-ROS2 integration for Chapter 11
+- [ ] T175 [US11] Create section on Voice commands for Chapter 11
+- [ ] T176 [US11] Create Python/ROS2 code examples for Chapter 11 in docs/src/code-examples/chapter11/
+- [ ] T177 [US11] Create practical exercises and projects for Chapter 11 in docs/docs/exercises/chapter-11-exercises.md
+- [ ] T178 [US11] Create chapter summary section for Chapter 11
+- [ ] T179 [US11] Create further reading section for Chapter 11
+- [ ] T180 [US11] Create assessment questions and criteria for Chapter 11
+- [ ] T181 [US11] Add proper frontmatter with id, title, sidebar_label, sidebar_position, and description for Chapter 11
+- [ ] T182 [US11] Verify chapter word count is between 1500-2000 words as per requirements
+- [ ] T183 [US11] Update sidebar navigation to include Chapter 11
 
 ---
 
-## Phase 8: User Story 6 - RAG Chatbot Integration (Priority: P3)
+## Phase 6: User Story 12 - Chapter 12: LLM-Robotics Integration (Priority: P2)
 
-**Goal**: Integrate an AI-powered chatbot that can answer questions about the textbook content
+**Goal**: Create chapter on LLM-robotics integration covering LLMs for robotics, task planning, code generation, and safety considerations
 
-**Independent Test**: Can be tested by querying the chatbot with textbook-related questions and verifying it provides accurate responses.
+**Independent Test**: Chapter can be viewed in Docusaurus site and contains all required elements with functional LLM integration examples
 
-### Implementation for User Story 6
+### Implementation for Chapter 12
 
-- [ ] T056 [P] [US6] Research and select RAG framework for chatbot implementation
-- [ ] T057 [P] [US6] Set up vector database for textbook content indexing
-- [ ] T058 [US6] Create content ingestion pipeline for textbook chapters
-- [ ] T059 [US6] Implement chatbot interface component
-- [ ] T060 [US6] Integrate chatbot with Docusaurus site
-- [ ] T061 [US6] Test chatbot responses with sample questions
-
----
-
-## Phase 9: Additional Core Chapters
-
-**Goal**: Complete remaining core chapters to build a comprehensive textbook
-
-### Implementation for Additional Chapters
-
-- [ ] T062 [P] [US7] Create control theory chapter in docs/chapters/04-control-theory.md
-- [ ] T063 [P] [US7] Create balance and stability chapter in docs/chapters/05-balance-and-stability.md
-- [ ] T064 [US7] Create motion planning chapter in docs/chapters/06-motion-planning.md
-- [ ] T065 [US7] Create human-robot interaction chapter in docs/chapters/07-human-robot-interaction.md
-- [ ] T066 [US7] Create learning in physical systems chapter in docs/chapters/08-learning-in-physical-systems.md
-- [ ] T067 [US7] Create future directions chapter in docs/chapters/09-future-directions.md
-- [ ] T068 [US7] Add exercises for all additional chapters
-- [ ] T069 [US7] Update navigation for all additional chapters
+- [ ] T184 [P] Create LLM-Robotics Integration chapter in docs/docs/chapters/ch12-llm-robotics-integration.md
+- [ ] T185 [P] Create learning objectives section (3-5 points) for Chapter 12
+- [ ] T186 [P] Create section on Large Language Models for robotics for Chapter 12
+- [ ] T187 Create section on Task planning with LLMs for Chapter 12
+- [ ] T188 Create section on Code generation for robots for Chapter 12
+- [ ] T189 Create section on Safety considerations for Chapter 12
+- [ ] T190 Create Python/ROS2 code examples for Chapter 12 in docs/src/code-examples/chapter12/
+- [ ] T191 Create practical exercises and projects for Chapter 12 in docs/docs/exercises/chapter-12-exercises.md
+- [ ] T192 Create chapter summary section for Chapter 12
+- [ ] T193 Create further reading section for Chapter 12
+- [ ] T194 Create assessment questions and criteria for Chapter 12
+- [ ] T195 Add proper frontmatter with id, title, sidebar_label, sidebar_position, and description for Chapter 12
+- [ ] T196 Verify chapter word count is between 1500-2000 words as per requirements
+- [ ] T197 Update sidebar navigation to include Chapter 12
 
 ---
 
-## Phase 10: Polish & Cross-Cutting Concerns
+## Phase 7: User Story 13 - Chapter 13: Multi-modal Systems (Priority: P3)
+
+**Goal**: Create chapter on multi-modal systems covering vision-language-action models, multi-sensor integration, context-aware robotics, and human-like interaction
+
+**Independent Test**: Chapter can be viewed in Docusaurus site and contains all required elements with functional multi-modal examples
+
+### Implementation for Chapter 13
+
+- [ ] T198 [P] Create Multi-modal Systems chapter in docs/docs/chapters/ch13-multi-modal-systems.md
+- [ ] T199 [P] Create learning objectives section (3-5 points) for Chapter 13
+- [ ] T200 [P] Create section on Vision-language-action models for Chapter 13
+- [ ] T201 Create section on Multi-sensor integration for Chapter 13
+- [ ] T202 Create section on Context-aware robotics for Chapter 13
+- [ ] T203 Create section on Human-like interaction for Chapter 13
+- [ ] T204 Create Python/ROS2 code examples for Chapter 13 in docs/src/code-examples/chapter13/
+- [ ] T205 Create practical exercises and projects for Chapter 13 in docs/docs/exercises/chapter-13-exercises.md
+- [ ] T206 Create chapter summary section for Chapter 13
+- [ ] T207 Create further reading section for Chapter 13
+- [ ] T208 Create assessment questions and criteria for Chapter 13
+- [ ] T209 Add proper frontmatter with id, title, sidebar_label, sidebar_position, and description for Chapter 13
+- [ ] T210 Verify chapter word count is between 1500-2000 words as per requirements
+- [ ] T211 Update sidebar navigation to include Chapter 13
+
+---
+
+## Phase 8: User Story 14 - Chapter 14: Safety and Ethics (Priority: P3)
+
+**Goal**: Create chapter on safety and ethics covering robot safety standards, ethical AI principles, risk assessment, and regulatory compliance
+
+**Independent Test**: Chapter can be viewed in Docusaurus site and contains all required elements with practical safety assessment examples
+
+### Implementation for Chapter 14
+
+- [ ] T212 [P] Create Safety and Ethics chapter in docs/docs/chapters/ch14-safety-ethics.md
+- [ ] T213 [P] Create learning objectives section (3-5 points) for Chapter 14
+- [ ] T214 [P] Create section on Robot safety standards for Chapter 14
+- [ ] T215 Create section on Ethical AI principles for Chapter 14
+- [ ] T216 Create section on Risk assessment for Chapter 14
+- [ ] T217 Create section on Regulatory compliance for Chapter 14
+- [ ] T218 Create Python/ROS2 code examples for Chapter 14 in docs/src/code-examples/chapter14/
+- [ ] T219 Create practical exercises and projects for Chapter 14 in docs/docs/exercises/chapter-14-exercises.md
+- [ ] T220 Create chapter summary section for Chapter 14
+- [ ] T221 Create further reading section for Chapter 14
+- [ ] T222 Create assessment questions and criteria for Chapter 14
+- [ ] T223 Add proper frontmatter with id, title, sidebar_label, sidebar_position, and description for Chapter 14
+- [ ] T224 Verify chapter word count is between 1500-2000 words as per requirements
+- [ ] T225 Update sidebar navigation to include Chapter 14
+
+---
+
+## Phase 9: User Story 15 - Chapter 15: Real-world Deployment (Priority: P2)
+
+**Goal**: Create chapter on real-world deployment covering sim-to-real transfer, hardware integration, field testing, and maintenance protocols
+
+**Independent Test**: Chapter can be viewed in Docusaurus site and contains all required elements with practical deployment examples
+
+### Implementation for Chapter 15
+
+- [ ] T226 [P] Create Real-world Deployment chapter in docs/docs/chapters/ch15-real-world-deployment.md
+- [ ] T227 [P] Create learning objectives section (3-5 points) for Chapter 15
+- [ ] T228 [P] Create section on Sim-to-real transfer for Chapter 15
+- [ ] T229 Create section on Hardware integration for Chapter 15
+- [ ] T230 Create section on Field testing for Chapter 15
+- [ ] T231 Create section on Maintenance protocols for Chapter 15
+- [ ] T232 Create Python/ROS2 code examples for Chapter 15 in docs/src/code-examples/chapter15/
+- [ ] T233 Create practical exercises and projects for Chapter 15 in docs/docs/exercises/chapter-15-exercises.md
+- [ ] T234 Create chapter summary section for Chapter 15
+- [ ] T235 Create further reading section for Chapter 15
+- [ ] T236 Create assessment questions and criteria for Chapter 15
+- [ ] T237 Add proper frontmatter with id, title, sidebar_label, sidebar_position, and description for Chapter 15
+- [ ] T238 Verify chapter word count is between 1500-2000 words as per requirements
+- [ ] T239 Update sidebar navigation to include Chapter 15
+
+---
+
+## Phase 10: User Story 16 - Chapter 16: Capstone Project (Priority: P1)
+
+**Goal**: Create capstone project chapter covering complete humanoid robot project, design to deployment, performance evaluation, and future improvements
+
+**Independent Test**: Chapter can be viewed in Docusaurus site and contains all required elements with comprehensive capstone project that integrates concepts from all previous chapters
+
+### Implementation for Chapter 16
+
+- [ ] T240 [P] Create Capstone Project chapter in docs/docs/chapters/ch16-capstone-project.md
+- [ ] T241 [P] Create learning objectives section (3-5 points) for Chapter 16
+- [ ] T242 [P] Create section on Complete humanoid robot project for Chapter 16
+- [ ] T243 Create section on Design to deployment for Chapter 16
+- [ ] T244 Create section on Performance evaluation for Chapter 16
+- [ ] T245 Create section on Future improvements for Chapter 16
+- [ ] T246 Create Python/ROS2 code examples for Chapter 16 in docs/src/code-examples/chapter16/
+- [ ] T247 Create comprehensive capstone exercises and project for Chapter 16 in docs/docs/exercises/chapter-16-exercises.md
+- [ ] T248 Create chapter summary section for Chapter 16
+- [ ] T249 Create further reading section for Chapter 16
+- [ ] T250 Create assessment questions and criteria for Chapter 16
+- [ ] T251 Add proper frontmatter with id, title, sidebar_label, sidebar_position, and description for Chapter 16
+- [ ] T252 Verify chapter word count is between 1500-2000 words as per requirements
+- [ ] T253 Update sidebar navigation to include Chapter 16
+
+**Checkpoint**: All 8 user stories (Chapters 9-16) should now be independently functional
+
+---
+
+## Phase 11: Integration & Cross-Cutting Concerns
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T070 [P] Add consistent styling and formatting across all chapters
-- [ ] T071 [P] Create common components for code snippets and exercises
-- [ ] T072 Add comprehensive testing of all code examples in simulation
-- [ ] T073 [P] Add accessibility features and alt text for images
-- [ ] T074 Add comprehensive index and glossary
-- [ ] T075 Create quickstart guide for students
-- [ ] T076 Run full validation of textbook content quality
-- [ ] T077 Deploy final version to GitHub Pages
+- [ ] T254 [P] Add consistent styling and formatting across all 8 advanced chapters
+- [ ] T255 [P] Create common components for advanced code snippets and exercises
+- [ ] T256 Add comprehensive testing of all advanced code examples in simulation
+- [ ] T257 [P] Add accessibility features and alt text for images
+- [ ] T258 Add comprehensive index and glossary for the 8 advanced chapters
+- [ ] T259 Create project-based assessment rubrics for practical projects
+- [ ] T260 Run full validation of advanced textbook content quality
+- [ ] T261 Test navigation between all 8 advanced chapters
+- [ ] T262 Verify search functionality works across all advanced content
+- [ ] T263 Deploy final version to GitHub Pages
 
 ---
 
@@ -215,14 +285,15 @@ description: "Task list for Physical AI and Humanoid Robotics textbook implement
 - **User Stories (Phase 3+)**: All depend on Foundational phase completion
   - User stories can then proceed in parallel (if staffed)
   - Or sequentially in priority order (P1 → P2 → P3)
-- **Polish (Final Phase)**: Depends on all desired user stories being complete
+- **Integration (Final Phase)**: Depends on all desired user stories being complete
 
 ### User Story Dependencies
 
-- **User Story 1 (P1)**: Can start after Foundational (Phase 2) - No dependencies on other stories
-- **User Story 4 (P1)**: Can start after Foundational (Phase 2) - May integrate with US1 but should be independently testable
-- **User Story 2 (P2)**: Can start after Foundational (Phase 2) - May integrate with US1 but should be independently testable
-- **User Story 3 (P3)**: Can start after Foundational (Phase 2) - May integrate with US1/US2 but should be independently testable
+- **User Story 9 (P2)**: Can start after Foundational (Phase 2) - No dependencies on other stories
+- **User Story 10 (P2)**: Can start after Foundational (Phase 2) - May integrate with US9 but should be independently testable
+- **User Story 11 (P2)**: Can start after Foundational (Phase 2) - May integrate with US9/US10 but should be independently testable
+- **User Stories 12-16**: Can start after Foundational (Phase 2) - May integrate with previous stories but should be independently testable
+- **User Story 16 (P1)**: Highest priority as it's the capstone project integrating all concepts
 
 ### Within Each User Story
 
@@ -240,22 +311,21 @@ description: "Task list for Physical AI and Humanoid Robotics textbook implement
 
 ## Implementation Strategy
 
-### MVP First (User Story 1 and 4 Only)
+### MVP First (User Story 16 Only)
 
 1. Complete Phase 1: Setup
 2. Complete Phase 2: Foundational (CRITICAL - blocks all stories)
-3. Complete Phase 3: User Story 1
-4. Complete Phase 4: User Story 4
-5. **STOP and VALIDATE**: Test basic textbook functionality
-6. Deploy/demo if ready
+3. Complete Phase 10: User Story 16 (Capstone Project - P1 priority)
+4. **STOP and VALIDATE**: Test User Story 16 independently
+5. Deploy/demo if ready
 
 ### Incremental Delivery
 
 1. Complete Setup + Foundational → Foundation ready
-2. Add User Story 1 → Test independently → Deploy/Demo (MVP!)
-3. Add User Story 4 → Test independently → Deploy/Demo
-4. Add User Story 2 → Test independently → Deploy/Demo
-5. Add User Story 3 → Test independently → Deploy/Demo
+2. Add User Story 16 → Test independently → Deploy/Demo (Capstone MVP!)
+3. Add User Story 9 → Test independently → Deploy/Demo
+4. Add User Story 10 → Test independently → Deploy/Demo
+5. Continue adding stories sequentially → Test independently → Deploy/Demo
 6. Each story adds value without breaking previous stories
 
 ### Parallel Team Strategy
@@ -264,10 +334,14 @@ With multiple developers:
 
 1. Team completes Setup + Foundational together
 2. Once Foundational is done:
-   - Developer A: User Story 1
-   - Developer B: User Story 4
-   - Developer C: User Story 2
-   - Developer D: User Story 3
+   - Developer A: User Story 16 (Capstone Project)
+   - Developer B: User Story 9 (Humanoid Kinematics)
+   - Developer C: User Story 10 (Bipedal Locomotion)
+   - Developer D: User Story 11 (Conversational AI)
+   - Developer E: User Story 12 (LLM-Robotics Integration)
+   - Developer F: User Story 13 (Multi-modal Systems)
+   - Developer G: User Story 14 (Safety and Ethics)
+   - Developer H: User Story 15 (Real-world Deployment)
 3. Stories complete and integrate independently
 
 ---
@@ -275,7 +349,7 @@ With multiple developers:
 ## Notes
 
 - [P] tasks = different files, no dependencies
-- [Story] label maps task to specific user story for traceability
+- [US#] label maps task to specific user story for traceability
 - Each user story should be independently completable and testable
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
