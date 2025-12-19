@@ -33,7 +33,7 @@ function HomepageHeader() {
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/docs">
+                to="/docs/intro">
                 View All Chapters
               </Link>
             </div>
@@ -93,21 +93,21 @@ function ChaptersPreview({onChapterHover}: {onChapterHover: (id: string) => void
       number: "04",
       title: "Gazebo Simulation Basics",
       description: "Creating and simulating robotic environments in Gazebo",
-      link: "/docs/chapters/gazebo-simulation-basics"
+      link: "/docs/chapters/ch04-gazebo-simulation-basics"
     },
     {
       id: "ch5",
       number: "05",
       title: "Unity for Human-Robot Interaction",
       description: "Building interactive experiences with Unity 3D",
-      link: "/docs/chapters/unity-for-human-robot-interaction"
+      link: "/docs/chapters/ch05-unity-for-human-robot-interaction"
     },
     {
       id: "ch6",
       number: "06",
       title: "Robot Manipulation and Control",
       description: "Arm control, grasping, and manipulation techniques",
-      link: "/docs/chapters/robot-manipulation-and-control"
+      link: "/docs/chapters/ch06-robot-manipulation-and-control"
     }
   ];
 
